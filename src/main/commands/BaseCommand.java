@@ -2,8 +2,8 @@ package main.commands;
 
 import main.decoratores.IMatrix;
 
-public class InitCommand implements ICommand {
-    private CommandManager manager;
+public class BaseCommand implements ICommand {
+    protected CommandManager manager;
     protected IMatrix matrix;
 
     protected void undo(){
@@ -14,8 +14,12 @@ public class InitCommand implements ICommand {
         manager.sing(this);
     }
 
-    public InitCommand(IMatrix matrix){
+    public BaseCommand(IMatrix matrix, CommandManager manager){
         this.matrix = matrix;
+        this.manager = manager;
+    }
+    public BaseCommand(CommandManager manager){
+        this.manager = manager;
     }
 
     @Override
@@ -25,6 +29,6 @@ public class InitCommand implements ICommand {
 
     @Override
     public ICommand copy() {
-        return new InitCommand(matrix);
+        return new BaseCommand(matrix, manager);
     }
 }

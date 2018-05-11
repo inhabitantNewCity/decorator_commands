@@ -32,4 +32,14 @@ public class BaseMatrix implements IMatrix {
     public IMatrix revertOperation() {
         return wrapper;
     }
+
+    //command reasons
+    public IMatrix copy(){
+        Number[][] clone = new Number[matrix.length][matrix.length];
+        for(int i = 0; i < clone.length; i++){
+            for(int j=0;j<clone[i].length; j++)
+                clone[i][j] = matrix[i][j];
+        }
+        return new BaseMatrix(clone);
+    }
 }

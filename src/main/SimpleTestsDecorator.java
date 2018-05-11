@@ -2,7 +2,7 @@ package main;
 
 import main.decoratores.*;
 
-public class SimpleTests {
+public class SimpleTestsDecorator {
     public static void main(String[] args) {
         Number[][] elements = {{1,2,3}, {3,1,2}, {2,1,3}};
 
@@ -39,7 +39,7 @@ public class SimpleTests {
         printMatrix(matrix);
     }
 
-    public static void printMatrix(IMatrix m){
+    private static void printMatrix(IMatrix m){
         for(int i = 0; i < m.getN(); i++){
             for(int j = 0; j < m.getN(); j++){
                 System.out.print(m.getElement(i,j) + " ");
