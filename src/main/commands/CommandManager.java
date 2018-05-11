@@ -1,6 +1,6 @@
 package main.commands;
 
-import main.UnregistratedCommandException;
+import main.UnregisteredCommandException;
 
 import java.util.Deque;
 import java.util.Iterator;
@@ -43,7 +43,7 @@ public class CommandManager {
      */
     public void undoCommand(ICommand command){
         if (!commands.contains(command))
-            throw new UnregistratedCommandException();
+            throw new UnregisteredCommandException();
         if(commands.isEmpty())
             return;
 

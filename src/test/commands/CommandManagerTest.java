@@ -1,6 +1,7 @@
 package test.commands;
 
 import junit.framework.TestCase;
+import main.UnregisteredCommandException;
 import main.commands.*;
 import main.decoratores.BaseMatrix;
 import main.decoratores.IMatrix;
@@ -14,6 +15,7 @@ public class CommandManagerTest extends TestCase {
 
     IMatrix matrix;
     CommandManager commandManager = CommandManager.getInstance();
+
 
     @Before
     public void setUp() throws Exception {
@@ -48,6 +50,19 @@ public class CommandManagerTest extends TestCase {
         commandManager.undoCommand(command);
 
         assertEquals(3.0f,matrix.getElement(0,2));
+    }
+
+    @Test
+    public void testUndoCommandUnregistered() throws Exception {
+        ICommand command = new TransposeCommand(commandManager, matrix);
+        try {
+            commandManager.undoCommand(command);
+            fail("Command is not found");
+        } catch(UnregisteredCommandException e) {
+            //if execution reaches here,
+            //it indicates this exception was occured.
+            //so we need not handle it.
+        }
     }
 
     @Test
