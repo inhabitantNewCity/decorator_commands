@@ -3,11 +3,11 @@ package main.commands;
 import main.decoratores.BaseMatrix;
 import main.decoratores.IMatrix;
 
-public class TransponseCommand extends BaseCommand {
+public class TransposeCommand extends BaseCommand {
 
     private IMatrix prevState;
 
-    public TransponseCommand(CommandManager manager, IMatrix matrix) {
+    public TransposeCommand(CommandManager manager, IMatrix matrix) {
         super(matrix, manager);
         prevState = ((BaseMatrix) matrix).copy();
     }
@@ -30,6 +30,6 @@ public class TransponseCommand extends BaseCommand {
 
     @Override
     public ICommand copy() {
-        return new TransponseCommand(manager, matrix);
+        return new TransposeCommand(manager, matrix);
     }
 }

@@ -29,7 +29,7 @@ public class SimpleTestCommand {
         new SetElementCommand(commandManager, matrix, 9.0f, 2, 1).execute();
         printMatrix(matrix);
 
-        new TransponseCommand(commandManager, matrix).execute();
+        new TransposeCommand(commandManager, matrix).execute();
         printMatrix(matrix);
 
         commandManager.undoCommand(command);

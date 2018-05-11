@@ -1,4 +1,4 @@
-package test;
+package test.decoratores;
 
 import main.decoratores.BaseMatrix;
 import main.decoratores.IMatrix;
